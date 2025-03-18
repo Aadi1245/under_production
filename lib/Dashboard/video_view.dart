@@ -8,7 +8,8 @@ import 'package:path_provider/path_provider.dart';
 
 class VideoView extends StatefulWidget {
   final String? url;
-  const VideoView(this.url, {super.key});
+  int index;
+  VideoView(this.url, this.index, {super.key});
 
   @override
   State<VideoView> createState() => _VideoViewState();
@@ -49,6 +50,8 @@ class _VideoViewState extends State<VideoView> {
     }
   }
 
+  List<bool> like = [false, false];
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -70,24 +73,29 @@ class _VideoViewState extends State<VideoView> {
                   VideoPlayer(videoPlayerController),
                   Positioned(
                     top: 430,
-                    left: 300,
+                    left: 325,
                     child: InkWell(
-                      onTap: () {},
-                      child: const Icon(
+                      onTap: () {
+                        like[widget.index] == true
+                            ? like[widget.index] = false
+                            : like[widget.index] = true;
+                        setState(() {});
+                      },
+                      child: Icon(
                         size: 32,
                         PhosphorIcons.heart,
-                        color: Colors.white,
+                        color: like[widget.index] ? Colors.red : Colors.white,
                       ),
                     ),
                   ),
                   Positioned(
                     top: 500,
-                    left: 300,
+                    left: 325,
                     child: Transform.rotate(
                       angle: 45.6,
                       child: InkWell(
                         onTap: _downloadAndShareVideo,
-                        child: const Icon(
+                        child: Icon(
                           size: 35,
                           PhosphorIcons.navigation_arrow,
                           color: Colors.white,

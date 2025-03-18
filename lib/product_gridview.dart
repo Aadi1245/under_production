@@ -55,7 +55,11 @@ class _ProductGridViewState extends State<ProductGridView> {
             width: MediaQuery.of(context).size.width * 0.45,
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.asset(AppAssets.appLogo)
+                child: Image.asset(
+                    widget.product.image != null
+                        ? widget.product.image!
+                        : AppAssets.placeholder,
+                    fit: BoxFit.cover)
                 // CachedNetworkImage(
                 //     imageUrl:
                 //         (widget.product != null && widget.product.image != null)
@@ -81,9 +85,9 @@ class _ProductGridViewState extends State<ProductGridView> {
           Container(
             padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
             alignment: Alignment.centerLeft,
-            child: Text("${widget.product.price}",
+            child: Text("₹ ${widget.product.price}",
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: AppTheme.priceTagColor,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                     )),
           ),

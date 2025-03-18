@@ -53,6 +53,9 @@ dependencies:
   flutter_phosphor_icons: ^0.0.1+6
   share_plus: ^10.1.4
   dio: ^5.8.0+1
+  url_launcher: ^6.3.1
+  flutter_inappwebview: ^6.1.5
+  webview_flutter: ^4.10.0
 
 dev_dependencies:
   flutter_test:
