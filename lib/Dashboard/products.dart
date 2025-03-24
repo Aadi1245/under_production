@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myfitnessapp/Models/product_model.dart';
 import 'package:myfitnessapp/Utils/app_const.dart';
 import 'package:myfitnessapp/Utils/theme_size.dart';
-import 'package:myfitnessapp/Widgets/inapp_webview.dart';
+import 'package:myfitnessapp/Widgets/webview_pages_screenbody.dart';
 import 'package:myfitnessapp/app_assets.dart';
 import 'package:myfitnessapp/product_gridview.dart';
 
@@ -75,7 +75,22 @@ class Products {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            // InappWebview();
+            print("onclick on product");
+            // context.push("${RouteGenerate.productDetailsScreen}",
+            //     extra: products![index].id);
+            // WebViewPagesScreen(
+            //     titleMain: "",
+            //     urlToLoad:
+            //         "https://www.amazon.in/MuscleBlaze-Performance-Chocolate-Creatine-Monohydrate/dp/B0CJYCFXSK/?th=1",
+            //     bodyTags: "");
+
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => WebViewPagesScreen(
+                    titleMain: "",
+                    urlToLoad:
+                        "https://www.amazon.in/MuscleBlaze-Performance-Chocolate-Creatine-Monohydrate/dp/B0CJYCFXSK/?th=1",
+                    bodyTags: "")));
+
             // ThemeSize.urlLauncher(
             //     "https://www.amazon.in/MuscleBlaze-Performance-Chocolate-Creatine-Monohydrate/dp/B0CJYCFXSK"); //products[index].url!);
 
