@@ -8,8 +8,10 @@ import 'package:path_provider/path_provider.dart';
 
 class VideoView extends StatefulWidget {
   final String? url;
-  int index;
-  VideoView(this.url, this.index, {super.key});
+  int? index;
+
+  VideoView(this.url,
+      {super.key, this.index, bool? autoPlay, bool? loop, double? height});
 
   @override
   State<VideoView> createState() => _VideoViewState();
@@ -76,15 +78,15 @@ class _VideoViewState extends State<VideoView> {
                     left: 325,
                     child: InkWell(
                       onTap: () {
-                        like[widget.index] == true
-                            ? like[widget.index] = false
-                            : like[widget.index] = true;
+                        like[widget.index!] == true
+                            ? like[widget.index!] = false
+                            : like[widget.index!] = true;
                         setState(() {});
                       },
                       child: Icon(
                         size: 32,
                         PhosphorIcons.heart,
-                        color: like[widget.index] ? Colors.red : Colors.white,
+                        color: like[widget.index!] ? Colors.red : Colors.white,
                       ),
                     ),
                   ),

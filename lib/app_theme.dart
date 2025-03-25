@@ -17,7 +17,7 @@ class AppTheme {
   // static const Color pColor = Color(0xFF3B8099);
   // static const Color sColor = Color(0xFF12262E);//secondary
   // static const Color blueLytColor = Color(0xFFEBF2F5);
-  // static const Color grayColor = Color(0xFF989898);
+  static const Color grayColor = Color(0xFF989898);
   //Shimmer colors
   static const Color highlightColor = Color.fromARGB(255, 215, 215, 221);
   static const Color lightBorder = Color(0xffd7d7d7);
@@ -160,19 +160,19 @@ class AppTheme {
       primaryDarkBackgroundColor; // = darken(primaryLightBackgroundColor!, 90);
 
 //general
-  static Color? primaryColor=Colors.white;
-  static Color? appBarTextColor=Colors.black;
-  static Color? primaryLightTextColor=Colors.black;
-  static Color? primaryLightBackgroundColor=Colors.white;
-  static Color? successColor=Colors.green;
-  static Color? errorColor=Colors.red;
-  static Color? borderColor=Colors.grey;
-  static Color? priceTagColor=Colors.yellow;
-  static Color? ratingColor=Colors.yellow;
-  static Color? productGridCellColor=Colors.white;
-  static Color? productGridCellTextColor=Colors.black;
-  static Color? productGridBuyNowBackgroundColor=Colors.black;
-  static Color? productGridBuyNowForegroundColor=Colors.white;
+  static Color? primaryColor = Colors.white;
+  static Color? appBarTextColor = Colors.black;
+  static Color? primaryLightTextColor = Colors.black;
+  static Color? primaryLightBackgroundColor = Colors.white;
+  static Color? successColor = Colors.green;
+  static Color? errorColor = Colors.red;
+  static Color? borderColor = Colors.grey;
+  static Color? priceTagColor = Colors.yellow;
+  static Color? ratingColor = Colors.yellow;
+  static Color? productGridCellColor = Colors.white;
+  static Color? productGridCellTextColor = Colors.black;
+  static Color? productGridBuyNowBackgroundColor = Colors.black;
+  static Color? productGridBuyNowForegroundColor = Colors.white;
 
 // Side_Navigation
   static Color? drawerSelectedTextColor;
@@ -225,12 +225,12 @@ class AppTheme {
       backgroundColor: AppTheme.primaryColor, //primaryLightAppBarColor
       titleTextStyle:
           // globals.Settings.containsKey(SettingsEnum.Customizable_Font.name)
-               GoogleFonts.getFont(
-                  AppTheme.headingFont!.trim(),
-                  fontSize: 16,
-                  color: AppTheme.appBarTextColor,
-                ),
-              // : TextStyle(fontSize: 16, color: AppTheme.appBarTextColor),
+          GoogleFonts.getFont(
+        AppTheme.headingFont!.trim(),
+        fontSize: 16,
+        color: AppTheme.appBarTextColor,
+      ),
+      // : TextStyle(fontSize: 16, color: AppTheme.appBarTextColor),
       iconTheme: IconThemeData(
         color: AppTheme.appBarTextColor, //change your color here
       ),
@@ -452,13 +452,13 @@ class AppTheme {
       backgroundColor: AppTheme.primaryColor, //primaryDarkAppBarColor
       titleTextStyle:
           // globals.Settings.containsKey(SettingsEnum.Customizable_Font.name)
-          //     ? 
-              GoogleFonts.getFont(
-                  AppTheme.headingFont!.trim(),
-                  fontSize: 16,
-                  color: AppTheme.appBarTextColor,
-                ),
-              // : TextStyle(fontSize: 16, color: AppTheme.appBarTextColor),
+          //     ?
+          GoogleFonts.getFont(
+        AppTheme.headingFont!.trim(),
+        fontSize: 16,
+        color: AppTheme.appBarTextColor,
+      ),
+      // : TextStyle(fontSize: 16, color: AppTheme.appBarTextColor),
       iconTheme: IconThemeData(
         color: AppTheme.appBarTextColor, //change your color here
       ),

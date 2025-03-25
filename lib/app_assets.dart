@@ -2,7 +2,7 @@ class AppAssets {
   AppAssets._();
 
   static const String appLogo = "assets/images/applogo.jpg";
-  static const String placeholder = "assets/images/placeholder.jpg";
+  static const String placeholder = "assets/images/placeholder.png";
   static const String muscleBlaze = "assets/images/MB.jpg";
   static const String nackPro = "assets/images/nackpro.jpg";
   static const String truth = "assets/images/truth.jpg";
@@ -13,4 +13,5 @@ class AppAssets {
   static const String dumbbell = "assets/images/dumbbell.jpg";
   static const String Atom = "assets/images/Atom.jpg";
   static const String bag = "assets/images/bag.jpg";
+  static const String img2 = "assets/images/images2.jpg";
 }

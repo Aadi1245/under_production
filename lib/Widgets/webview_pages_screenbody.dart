@@ -26,21 +26,23 @@ class WebViewPagesScreen extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: true,
         appBar: AppBar(
-          leading: IconButton(
-              icon: Container(
-                width: 35, //MediaQuery.of(context).size.width * 0.09,
-                height: 35, //MediaQuery.of(context).size.height * 0.09,
-                padding: EdgeInsets.fromLTRB(5, 5, 2, 5),
-                child: SvgPicture.asset("assets/images/arrow-back.svg",
-                    colorFilter: ColorFilter.mode(
-                        AppTheme.appBarTextColor!, BlendMode.srcIn)),
-              ),
-              onPressed: () {
-                context.pop();
-              }),
+          // leading: IconButton(
+          //     icon: Container(
+          //       width: 30, //MediaQuery.of(context).size.width * 0.09,
+          //       height: 30, //MediaQuery.of(context).size.height * 0.09,
+          //       padding: EdgeInsets.fromLTRB(5, 5, 2, 5),
+          //       child: SvgPicture.asset("assets/images/arrow-back.svg",
+          //           colorFilter: ColorFilter.mode(
+          //               AppTheme.appBarTextColor!, BlendMode.srcIn)),
+          //     ),
+          //     onPressed: () {
+          //       Navigator.of(context).pop();
+          //     }),
           title: Text(title,
-              style: CustomTextTheme.getTextStyle(
-                  MyTextStyle.SimpleText, context)),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black)),
         ),
         body: WebViewPagesScreenBody(
           titleMain: title,

@@ -26,7 +26,7 @@ class Shots {
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     // color: Colors.yellow,
-                    child: VideoView(urls[index], index));
+                    child: VideoView(urls[index], index: index));
               },
             )),
       ),

@@ -86,9 +86,9 @@ class Products {
 
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => WebViewPagesScreen(
-                    titleMain: "",
-                    urlToLoad:
-                        "https://www.amazon.in/MuscleBlaze-Performance-Chocolate-Creatine-Monohydrate/dp/B0CJYCFXSK/?th=1",
+                    titleMain: "Product Details",
+                    urlToLoad: allProduct[index].url!,
+                    // "https://www.amazon.in/MuscleBlaze-Performance-Chocolate-Creatine-Monohydrate/dp/B0CJYCFXSK/?th=1",
                     bodyTags: "")));
 
             // ThemeSize.urlLauncher(
