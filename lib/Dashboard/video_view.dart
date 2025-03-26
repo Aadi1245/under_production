@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:video_player/video_player.dart';
@@ -23,9 +25,7 @@ class _VideoViewState extends State<VideoView> {
   @override
   void initState() {
     super.initState();
-    videoPlayerController = VideoPlayerController.networkUrl(
-      Uri.parse(widget.url!),
-    );
+    videoPlayerController = VideoPlayerController.asset(widget.url!);
 
     videoPlayerController.initialize().then((_) {
       videoPlayerController.play();
@@ -35,24 +35,41 @@ class _VideoViewState extends State<VideoView> {
     });
   }
 
-  Future<void> _downloadAndShareVideo() async {
+//  void _togglePlayPause() {
+//     setState(() {
+//       if (videoPlayerController.value.isPlaying) {
+//         videoPlayerController.pause();
+//       } else {
+//         videoPlayerController.play();
+//       }
+//       isPlaying = videoPlayerController.value.isPlaying;
+//     });
+//   }
+
+  Future<void> _shareAssetVideo() async {
     try {
+      // Load the asset video
+      ByteData bytes = await rootBundle.load(widget.url!);
+
+      // Get a temporary directory
       final tempDir = await getTemporaryDirectory();
       final filePath = '${tempDir.path}/shared_video.mp4';
 
-      // Download the video using Dio
-      await Dio().download(widget.url!, filePath);
+      // Write asset video to a temporary file
+      File file = File(filePath);
+      await file.writeAsBytes(bytes.buffer.asUint8List());
 
-      // Share the downloaded file
+      // Share the video
       await Share.shareXFiles([XFile(filePath)], text: 'Check out this video!');
-    } catch (ex) {
-      print("Exception thrown by share: $ex");
+    } catch (e) {
+      print("Error sharing video: $e");
       ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Failed to share the video.")));
+        const SnackBar(content: Text("Error sharing the video.")),
+      );
     }
   }
 
-  List<bool> like = [false, false];
+  // List<bool> like = [false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -73,35 +90,32 @@ class _VideoViewState extends State<VideoView> {
               child: Stack(
                 children: [
                   VideoPlayer(videoPlayerController),
+                  // Positioned(
+                  //   top: 430,
+                  //   left: 325,
+                  //   child: InkWell(
+                  //     onTap: () {
+                  //       like[widget.index!] == true
+                  //           ? like[widget.index!] = false
+                  //           : like[widget.index!] = true;
+                  //       setState(() {});
+                  //     },
+                  //     child: Icon(
+                  //       size: 32,
+                  //       PhosphorIcons.heart,
+                  //       color: like[widget.index!] ? Colors.red : Colors.white,
+                  //     ),
+                  //   ),
+                  // ),
                   Positioned(
-                    top: 430,
-                    left: 325,
+                    top: 20,
+                    left: 315,
                     child: InkWell(
-                      onTap: () {
-                        like[widget.index!] == true
-                            ? like[widget.index!] = false
-                            : like[widget.index!] = true;
-                        setState(() {});
-                      },
+                      onTap: _shareAssetVideo,
                       child: Icon(
-                        size: 32,
-                        PhosphorIcons.heart,
-                        color: like[widget.index!] ? Colors.red : Colors.white,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 500,
-                    left: 325,
-                    child: Transform.rotate(
-                      angle: 45.6,
-                      child: InkWell(
-                        onTap: _downloadAndShareVideo,
-                        child: Icon(
-                          size: 35,
-                          PhosphorIcons.navigation_arrow,
-                          color: Colors.white,
-                        ),
+                        size: 35,
+                        PhosphorIcons.share_network_fill, // navigation_arrow,
+                        color: Colors.white,
                       ),
                     ),
                   ),

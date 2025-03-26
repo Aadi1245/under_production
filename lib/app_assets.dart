@@ -14,4 +14,24 @@ class AppAssets {
   static const String Atom = "assets/images/Atom.jpg";
   static const String bag = "assets/images/bag.jpg";
   static const String img2 = "assets/images/images2.jpg";
+
+  static const String vid0 = "assets/videos/vid0.mp4";
+  static const String vid1 = "assets/videos/vid1.mp4";
+  static const String vid2 = "assets/videos/vid2.mp4";
+  static const String vid3 = "assets/videos/vid3.mp4";
+  static const String vid4 = "assets/videos/vid4.mp4";
+  static const String vid5 = "assets/videos/vid5.mp4";
+  static const String vid6 = "assets/videos/vid6.mp4";
+  static const String vid7 = "assets/videos/vid7.mp4";
+  static const String vid8 = "assets/videos/vid8.mp4";
+  static const String vid9 = "assets/videos/vid9.mp4";
+  static const String vid10 = "assets/videos/vid10.mp4";
+  static const String vid11 = "assets/videos/vid11.mp4";
+  static const String vid12 = "assets/videos/vid12.mp4";
+  static const String vid13 = "assets/videos/vid13.mp4";
+  static const String vid14 = "assets/videos/vid14.mp4";
+  static const String vid15 = "assets/videos/vid15.mp4";
+  static const String vid16 = "assets/videos/vid16.mp4";
+  static const String vid17 = "assets/videos/vid17.mp4";
+  static const String vid18 = "assets/videos/vid18.mp4";
 }

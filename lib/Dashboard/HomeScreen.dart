@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myfitnessapp/Dashboard/collection_view.dart';
 import 'package:myfitnessapp/Dashboard/slider.dart';
 import 'package:myfitnessapp/Models/simple_slider.dart';
+import 'package:myfitnessapp/Widgets/image_view.dart';
 import 'package:myfitnessapp/app_assets.dart';
 
 class Homescreen {
@@ -26,6 +27,17 @@ class Homescreen {
               children: [
                 SliderImage(data!),
                 CollectionView("Recommended Products"),
+                Container(
+                    child: ClipRRect(
+                  child: ImageView(
+                    AppAssets.img2,
+                    // height: MediaQuery.of(context).size.height * 0.35,
+                    // width: MediaQuery.of(context).size.width,
+                  ),
+                )),
+                SizedBox(
+                  height: 90,
+                )
               ],
             )),
       ),

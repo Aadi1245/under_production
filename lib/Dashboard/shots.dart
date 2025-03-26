@@ -1,15 +1,33 @@
 // import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:myfitnessapp/Dashboard/video_view.dart';
+import 'package:myfitnessapp/app_assets.dart';
 // import 'package:myfitnessapp/Dashboard/video_view.dart';
-import 'package:video_player/video_player.dart';
+// import 'package:video_player/video_player.dart';
 
 class Shots {
   // late ChewieController chewieController;
 
   List<String> urls = [
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    AppAssets.vid0,
+    AppAssets.vid1,
+    AppAssets.vid2,
+    AppAssets.vid3,
+    AppAssets.vid4,
+    AppAssets.vid5,
+    AppAssets.vid6,
+    AppAssets.vid7,
+    AppAssets.vid8,
+    AppAssets.vid9,
+    AppAssets.vid10,
+    AppAssets.vid11,
+    AppAssets.vid12,
+    AppAssets.vid13,
+    AppAssets.vid14,
+    AppAssets.vid15,
+    AppAssets.vid16,
+    AppAssets.vid17,
+    AppAssets.vid18
   ];
 
   @override
@@ -20,13 +38,17 @@ class Shots {
         child: PageView(
             scrollDirection: Axis.vertical,
             children: List.generate(
-              2,
+              18,
               (index) {
                 return Container(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     // color: Colors.yellow,
-                    child: VideoView(urls[index], index: index));
+                    child: VideoView(
+                      urls[index],
+                      index: index,
+                      autoPlay: false,
+                    ));
               },
             )),
       ),

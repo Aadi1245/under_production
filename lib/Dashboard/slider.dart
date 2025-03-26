@@ -148,7 +148,7 @@ class _SliderImageState extends State<SliderImage> {
   }
 
   Widget SliderWidgetImage(SimpleImageSlider imageBanner, double _height) {
-    print("------------------->>>>image banner${imageBanner}");
+    // print("------------------->>>>image banner${imageBanner.imageSrc}");
     return Container(
       height: _height,
       // alignment: Alignment.center,

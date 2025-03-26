@@ -21,41 +21,41 @@ class Products {
     Product(
         title: "Muscle Blaze",
         image: AppAssets.muscleBlaze,
-        price: 1000,
+        price: 3099,
         url: AppConst.mB),
-    Product(
-        title: "NackPro",
-        image: AppAssets.nackPro,
-        price: 1000,
-        url: AppConst.nackPro),
-    Product(title: "ON", image: AppAssets.oN, price: 1000, url: AppConst.oN),
+    // Product(
+    //     title: "NackPro",
+    //     image: AppAssets.nackPro,
+    //     price: 1000,
+    //     url: AppConst.nackPro),
+    Product(title: "ON", image: AppAssets.oN, price: 3499, url: AppConst.oN),
     Product(
         title: "The Whole Truth",
         image: AppAssets.truth,
-        price: 1000,
+        price: 4199,
         url: AppConst.truth),
     Product(
-        title: "Atom", image: AppAssets.Atom, price: 1000, url: AppConst.atom),
+        title: "Atom", image: AppAssets.Atom, price: 1999, url: AppConst.atom),
     Product(
         title: "Creatine",
         image: AppAssets.creatine,
-        price: 1000,
+        price: 1079,
         url: AppConst.creatine),
     Product(
         title: "Gloves",
         image: AppAssets.gloves,
-        price: 1000,
+        price: 549,
         url: AppConst.gloves),
     Product(
         title: "Abs Roller",
         image: AppAssets.roller,
-        price: 1000,
+        price: 197,
         url: AppConst.roller),
-    Product(title: "Bag", image: AppAssets.bag, price: 1000, url: AppConst.bag),
+    Product(title: "Bag", image: AppAssets.bag, price: 299, url: AppConst.bag),
     Product(
         title: "Dumbbells",
         image: AppAssets.dumbbell,
-        price: 1000,
+        price: 1598,
         url: AppConst.dumbbell),
   ];
 
