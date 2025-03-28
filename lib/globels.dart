@@ -27,7 +27,7 @@ String routeName = "";
 String currentCountryCode = "";
 bool isLogin = false;
 String? placeholderImagePath;
-
+String? gender = "male";
 // bool firebaseEnabled = false;
 // FirebaseAnalytics? analyticsMain;
 
