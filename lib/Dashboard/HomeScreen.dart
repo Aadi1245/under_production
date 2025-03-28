@@ -7,9 +7,17 @@ import 'package:myfitnessapp/app_assets.dart';
 
 class Homescreen {
   SimpleImageSliderData? data;
+
+  List<String> slidImage = [
+    AppAssets.slider0,
+    AppAssets.slider1,
+    AppAssets.slider2,
+    AppAssets.img2
+  ];
+
   loadImage() {
     List<SimpleImageSlider> images = List.generate(4, (index) {
-      return SimpleImageSlider(imageSrc: AppAssets.img2);
+      return SimpleImageSlider(imageSrc: slidImage[index]);
     });
 
     data = SimpleImageSliderData(height: 350, simpleImageSlider: images);
@@ -36,7 +44,7 @@ class Homescreen {
                   ),
                 )),
                 SizedBox(
-                  height: 90,
+                  height: 70,
                 )
               ],
             )),

@@ -15,6 +15,10 @@ class AppAssets {
   static const String bag = "assets/images/bag.jpg";
   static const String img2 = "assets/images/images2.jpg";
 
+  static const String slider0 = "assets/images/slider0.jpg";
+  static const String slider1 = "assets/images/slider1.jpg";
+  static const String slider2 = "assets/images/slider2.jpg";
+
   static const String vid0 = "assets/videos/vid0.mp4";
   static const String vid1 = "assets/videos/vid1.mp4";
   static const String vid2 = "assets/videos/vid2.mp4";

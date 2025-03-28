@@ -174,6 +174,7 @@ class _EntryPointState extends State<DashboardScreen>
 
       ///saloni Todo "to show buttom bar tabs here"
       bottomNavigationBar: CurvedNavigationBar(
+        height: 55,
         // buttonBackgroundColor: Colors.red,
         color: Colors.blue.shade200,
         backgroundColor:
