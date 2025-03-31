@@ -67,14 +67,15 @@ class _SplashScreenState extends State<SplashScreen>
     _scale2Controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
 
-    _scale2Animation =
-        Tween<double>(begin: 1.0, end: 32.0).animate(_scale2Controller)
-          ..addStatusListener((status) {
-            if (status == AnimationStatus.completed) {
-              Navigator.of(context)
-                  .push(MyCustomRouteTransition(route: DashboardScreen()));
-            }
-          });
+    _scale2Animation = Tween<double>(begin: 1.0, end: 32.0)
+        .animate(_scale2Controller)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          Navigator.of(context).push(
+              MyCustomRouteTransition(route: SignUpScreen() //DashboardScreen()
+                  ));
+        }
+      });
   }
 
   @override

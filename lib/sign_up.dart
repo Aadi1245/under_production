@@ -1,8 +1,6 @@
 // import 'package:animate_do/animate_do.dart';
 // import 'package:flutter/material.dart';
 
-
-
 // class SignUpScreen extends StatefulWidget {
 //   @override
 //   _SignUpScreenState createState() => _SignUpScreenState();
@@ -127,7 +125,6 @@
 //   }
 // }
 
-
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:myfitnessapp/Utils/theme.dart';
@@ -143,6 +140,15 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formSignupKey = GlobalKey<FormState>();
+
+  TextEditingController name = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController pass = TextEditingController();
+  TextEditingController age = TextEditingController();
+  TextEditingController height = TextEditingController();
+  TextEditingController weight = TextEditingController();
+  TextEditingController gender = TextEditingController();
+
   bool agreePersonalData = true;
   @override
   Widget build(BuildContext context) {
@@ -187,6 +193,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       // full name
                       TextFormField(
+                        controller: name,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter Full name';
@@ -218,6 +225,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       // email
                       TextFormField(
+                        controller: email,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter Email';
@@ -244,11 +252,144 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
+
                       const SizedBox(
                         height: 25.0,
                       ),
+
+                      //Age & Height
+                      Row(
+                        children: [
+                          TextFormField(
+                            controller: age,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Age';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              label: const Text('Age'),
+                              hintText: 'Enter Age',
+                              hintStyle: const TextStyle(
+                                color: Colors.black26,
+                              ),
+                              border: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Colors.black12, // Default border color
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Colors.black12, // Default border color
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                          TextFormField(
+                            controller: height,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Height';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              label: const Text('Height'),
+                              hintText: 'Enter Height',
+                              hintStyle: const TextStyle(
+                                color: Colors.black26,
+                              ),
+                              border: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Colors.black12, // Default border color
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Colors.black12, // Default border color
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+
+                      Row(
+                        children: [
+                          TextFormField(
+                            controller: weight,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Weight';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              label: const Text('Weight'),
+                              hintText: 'Enter Weight',
+                              hintStyle: const TextStyle(
+                                color: Colors.black26,
+                              ),
+                              border: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Colors.black12, // Default border color
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Colors.black12, // Default border color
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                          TextFormField(
+                            controller: gender,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Gender';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              label: const Text('Gender'),
+                              hintText: 'Enter Gender',
+                              hintStyle: const TextStyle(
+                                color: Colors.black26,
+                              ),
+                              border: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Colors.black12, // Default border color
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: const BorderSide(
+                                  color: Colors.black12, // Default border color
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+
                       // password
                       TextFormField(
+                        controller: pass,
                         obscureText: true,
                         obscuringCharacter: '*',
                         validator: (value) {
@@ -315,20 +456,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            if (_formSignupKey.currentState!.validate() &&
-                                agreePersonalData) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Processing Data'),
-                                ),
-                              );
-                            } else if (!agreePersonalData) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text(
-                                        'Please agree to the processing of personal data')),
-                              );
-                            }
+                            // if (_formSignupKey.currentState!.validate() &&
+                            //     agreePersonalData) {
+                            //   ScaffoldMessenger.of(context).showSnackBar(
+                            //     const SnackBar(
+                            //       content: Text('Processing Data'),
+                            //     ),
+                            //   );
+                            // } else if (!agreePersonalData) {
+                            //   ScaffoldMessenger.of(context).showSnackBar(
+                            //     const SnackBar(
+                            //         content: Text(
+                            //             'Please agree to the processing of personal data')),
+                            //   );
+                            // }
                           },
                           child: const Text('Sign up'),
                         ),
@@ -425,35 +566,3 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
