@@ -8,7 +8,6 @@ import 'package:myfitnessapp/Widgets/toast.dart';
 import 'package:myfitnessapp/custom_text_form_field.dart';
 import 'package:myfitnessapp/sign_up.dart';
 
-
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
@@ -18,8 +17,8 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   bool _isSigning = false;
-  final FirebaseAuthService _auth = FirebaseAuthService();
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  // final FirebaseAuthService _auth = FirebaseAuthService();
+  // final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
@@ -51,8 +50,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 30,
               ),
 
-              CustomTextFormField().SimpleTextFormField(context: context, hintText: "Email",controller: _emailController),
-
+              CustomTextFormField().SimpleTextFormField(
+                  context: context,
+                  hintText: "Email",
+                  controller: _emailController),
 
               // FormContainerWidget(
               //   controller: _emailController,
@@ -63,7 +64,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 10,
               ),
 
-              CustomTextFormField().SimpleTextFormField(context: context, hintText: "password",controller: _passwordController),
+              CustomTextFormField().SimpleTextFormField(
+                  context: context,
+                  hintText: "password",
+                  controller: _passwordController),
 
               // FormContainerWidget(
               //   controller: _passwordController,
@@ -75,7 +79,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
               GestureDetector(
                 onTap: () {
-                  _signIn();
+                  // _signIn();
                 },
                 child: Container(
                   width: double.infinity,
@@ -85,22 +89,26 @@ class _SignInScreenState extends State<SignInScreen> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
-                    child: _isSigning ? CircularProgressIndicator(
-                      color: Colors.white,) : Text(
-                      "Login",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    child: _isSigning
+                        ? CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : Text(
+                            "Login",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               GestureDetector(
                 onTap: () {
-                  _signInWithGoogle();
-
+                  // _signInWithGoogle();
                 },
                 child: Container(
                   width: double.infinity,
@@ -113,8 +121,13 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(FontAwesomeIcons.google, color: Colors.white,),
-                        SizedBox(width: 5,),
+                        Icon(
+                          FontAwesomeIcons.google,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
                         Text(
                           "Sign in with Google",
                           style: TextStyle(
@@ -127,7 +140,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
               ),
-
 
               SizedBox(
                 height: 20,
@@ -142,11 +154,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignUpScreen()),
-                            (route) => false,
-                      );
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpScreen()));
                     },
                     child: Text(
                       "Sign Up",
@@ -165,58 +176,54 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  void _signIn() async {
-    setState(() {
-      _isSigning = true;
-    });
+  // void _signIn() async {
+  //   setState(() {
+  //     _isSigning = true;
+  //   });
 
-    String email = _emailController.text;
-    String password = _passwordController.text;
+  //   String email = _emailController.text;
+  //   String password = _passwordController.text;
 
-    User? user = await _auth.signInWithEmailAndPassword(email, password);
+  //   User? user = await _auth.signInWithEmailAndPassword(email, password);
 
-    setState(() {
-      _isSigning = false;
-    });
+  //   setState(() {
+  //     _isSigning = false;
+  //   });
 
-    if (user != null) {
-      showToast(message: "User is successfully signed in");
-      Navigator.pushNamed(context, "/home");
-    } else {
-      showToast(message: "some error occured");
-    }
-  }
+  //   if (user != null) {
+  //     showToast(message: "User is successfully signed in");
+  //     Navigator.pushNamed(context, "/home");
+  //   } else {
+  //     showToast(message: "some error occured");
+  //   }
+  // }
 
+//   _signInWithGoogle()async{
 
-  _signInWithGoogle()async{
+//     final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-    final GoogleSignIn _googleSignIn = GoogleSignIn();
+//     try {
 
-    try {
+//       final GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
 
-      final GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
+//       if(googleSignInAccount != null ){
+//         final GoogleSignInAuthentication googleSignInAuthentication = await
+//         googleSignInAccount.authentication;
 
-      if(googleSignInAccount != null ){
-        final GoogleSignInAuthentication googleSignInAuthentication = await
-        googleSignInAccount.authentication;
+//         final AuthCredential credential = GoogleAuthProvider.credential(
+//           idToken: googleSignInAuthentication.idToken,
+//           accessToken: googleSignInAuthentication.accessToken,
+//         );
 
-        final AuthCredential credential = GoogleAuthProvider.credential(
-          idToken: googleSignInAuthentication.idToken,
-          accessToken: googleSignInAuthentication.accessToken,
-        );
+//         await _firebaseAuth.signInWithCredential(credential);
+//         Navigator.pushNamed(context, "/home");
+//       }
 
-        await _firebaseAuth.signInWithCredential(credential);
-        Navigator.pushNamed(context, "/home");
-      }
+//     }catch(e) {
+// showToast(message: "some error occured $e");
+//     }
 
-    }catch(e) {
-showToast(message: "some error occured $e");
-    }
-
-
-  }
-
-
+//   }
 }
 
 

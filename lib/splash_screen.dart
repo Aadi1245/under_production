@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen>
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           Navigator.of(context).push(
-              MyCustomRouteTransition(route: SignUpScreen() //DashboardScreen()
+              MyCustomRouteTransition(route: WelcomeScreen() //DashboardScreen()
                   ));
         }
       });

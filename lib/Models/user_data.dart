@@ -1,45 +1,43 @@
 class UserData {
-  String? name;
-  String? email;
-  String? age;
-  String? height;
-  String? weight;
-  String? gender;
-  String? pass;
+  String name;
+  String email;
+  int age;
+  double height;
+  double weight;
+  String gender;
+  String pass;
 
   UserData({
-    this.name,
-    this.email,
-    this.age,
-    this.height,
-    this.weight,
-    this.gender,
-    this.pass,
+    required this.name,
+    required this.email,
+    required this.age,
+    required this.height,
+    required this.weight,
+    required this.gender,
+    required this.pass,
   });
 
-  // Convert UserData object to JSON (Map)
-  Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'email': email,
-      'age': age,
-      'height': height,
-      'weight': weight,
-      'gender': gender,
-      'pass': pass,
-    };
-  }
+  // Convert object to Map for easy storage
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'email': email,
+        'age': age,
+        'height': height,
+        'weight': weight,
+        'gender': gender,
+        'pass': pass, // Consider encrypting
+      };
 
-  // Create UserData object from JSON (Map)
+  // Factory method to create UserData from JSON
   factory UserData.fromJson(Map<String, dynamic> json) {
     return UserData(
-      name: json['name'],
-      email: json['email'],
-      age: json['age'],
-      height: json['height'],
-      weight: json['weight'],
-      gender: json['gender'],
-      pass: json['pass'],
+      name: json['name'] ?? '',
+      email: json['email'] ?? '',
+      age: json['age'] ?? 0,
+      height: (json['height'] ?? 0.0).toDouble(),
+      weight: (json['weight'] ?? 0.0).toDouble(),
+      gender: json['gender'] ?? '',
+      pass: json['pass'] ?? '',
     );
   }
 }
