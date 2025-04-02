@@ -23,42 +23,42 @@ class CustomTextFormField {
       String? initialValue,
       TextInputType? keyboardType,
       Function(String)? onChanged,
-      bool obscureText = false,int? maxLength}) {
+      bool obscureText = false,
+      int? maxLength}) {
     return Container(
       height: ThemeSize.themeTextFieldSize,
       alignment: Alignment.center,
       child: TextFormField(
-        textCapitalization: textCapitalization ?? TextCapitalization.none,
-        style: CustomTextTheme.getTextStyle(
-            MyTextStyle.TextFormFieldInput, context),
-        // style: AppTextTheme,
-        maxLength: maxLength,
-        controller: controller,
-        obscureText: obscureText,
-        // validator: validator,
-        initialValue: initialValue,
-        onChanged: onChanged,
-        cursorColor: AppTheme.editTextControllerTextColor,
-        keyboardType: keyboardType,
-        showCursor: true,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(5, 10, 5, 10),
-          border: OutlineInputBorder(
-            borderRadius:
-                BorderRadius.all(Radius.circular(ThemeSize.themeBorderRadius)),
-            borderSide: BorderSide(
-              width: 0,
-              style: BorderStyle.none,
-            ),
-          ),
-          // labelText: labelText,
-          filled: true,
-          // fillColor: Color(0xFFF2F3F5),
-          labelStyle: CustomTextTheme.getTextStyle(
+          textCapitalization: textCapitalization ?? TextCapitalization.none,
+          style: CustomTextTheme.getTextStyle(
               MyTextStyle.TextFormFieldInput, context),
-          labelText: hintText,counterText: ""
-        )
-      ),
+          // style: AppTextTheme,
+          maxLength: maxLength,
+          controller: controller,
+          obscureText: obscureText,
+          // validator: validator,
+          initialValue: initialValue,
+          onChanged: onChanged,
+          cursorColor: AppTheme.editTextControllerTextColor,
+          keyboardType: keyboardType,
+          showCursor: true,
+          decoration: InputDecoration(
+              contentPadding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(
+                    Radius.circular(ThemeSize.themeBorderRadius)),
+                borderSide: BorderSide(
+                  width: 0,
+                  style: BorderStyle.none,
+                ),
+              ),
+              // labelText: labelText,
+              filled: true,
+              // fillColor: Color(0xFFF2F3F5),
+              labelStyle: CustomTextTheme.getTextStyle(
+                  MyTextStyle.TextFormFieldInput, context),
+              labelText: hintText,
+              counterText: "")),
     );
   }
 
@@ -166,7 +166,8 @@ class CustomTextFormField {
             width: MediaQuery.of(context).size.width * 0.02,
             child: SvgPicture.asset(
               prefixIcon!,
-              colorFilter: ColorFilter.mode(AppTheme.primaryLightTextColor!, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(
+                  AppTheme.primaryLightTextColor!, BlendMode.srcIn),
             ),
           ),
           // fillColor: Color(0xFFF2F3F5),
@@ -230,7 +231,8 @@ class CustomTextFormField {
             child: SvgPicture.asset(
               alignment: Alignment.topLeft,
               prefixIcon!,
-              colorFilter: ColorFilter.mode(AppTheme.primaryLightTextColor!, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(
+                  AppTheme.primaryLightTextColor!, BlendMode.srcIn),
             ),
           ),
           // fillColor: Color(0xFFF2F3F5),
@@ -253,8 +255,8 @@ class CustomTextFormField {
       // IconData? prefixIcon,
       IconData? suffixIcon,
       Color? suffixIconColor,
-        bool obscureText = false,
-        int? maxlength   }) {
+      bool obscureText = false,
+      int? maxlength}) {
     return Container(
       height: ThemeSize.themeTextFieldSize,
       alignment: Alignment.center,
@@ -265,7 +267,7 @@ class CustomTextFormField {
         obscureText: obscureText,
         // validator: validator,
         initialValue: initialValue,
-        maxLength: maxlength ,
+        maxLength: maxlength,
         onChanged: onChanged,
         cursorColor: AppTheme.editTextControllerTextColor,
         keyboardType: keyboardType,
@@ -288,7 +290,7 @@ class CustomTextFormField {
           // ),
           suffixIcon: Icon(
             suffixIcon,
-            color: suffixIconColor  ?? AppTheme.primaryLightTextColor!,
+            color: suffixIconColor ?? AppTheme.primaryLightTextColor!,
             // color: Color(0xFF666666),
             size: defaultIconSize,
           ),
@@ -328,7 +330,6 @@ class CustomTextFormField {
         onChanged: onChanged,
         cursorColor: AppTheme.editTextControllerTextColor,
 
-       
         showCursor: true,
         decoration: InputDecoration(
           counterText: "",
@@ -356,7 +357,9 @@ class CustomTextFormField {
                           width: 25,
                           child: SvgPicture.asset(
                             prefixIcon!,
-                            colorFilter: ColorFilter.mode(AppTheme.primaryLightTextColor!, BlendMode.srcIn),
+                            colorFilter: ColorFilter.mode(
+                                AppTheme.primaryLightTextColor!,
+                                BlendMode.srcIn),
                           ),
                         ),
                       ),
@@ -412,7 +415,6 @@ class CustomTextFormField {
 
           onClick!.call();
         },
-
         cursorColor: AppTheme.editTextControllerTextColor,
         showCursor: false,
         decoration: InputDecoration(
@@ -507,7 +509,8 @@ class _SimpleTextFormFieldWithPrefixIconAndVisibilityToggleState
               width: MediaQuery.of(context).size.width * 0.06,
               child: SvgPicture.asset(
                 widget.prefixIcon!,
-              colorFilter: ColorFilter.mode(AppTheme.primaryLightTextColor!, BlendMode.srcIn),
+                colorFilter: ColorFilter.mode(
+                    AppTheme.primaryLightTextColor!, BlendMode.srcIn),
               ),
             ),
             // Icon(
@@ -521,13 +524,19 @@ class _SimpleTextFormFieldWithPrefixIconAndVisibilityToggleState
                 ? Container(
                     padding: EdgeInsets.all(10),
                     width: MediaQuery.of(context).size.width * 0.058,
-                    child: SvgPicture.asset("assets/images/closed_eye.svg",
-                    colorFilter: ColorFilter.mode(AppTheme.primaryLightTextColor!, BlendMode.srcIn),))
+                    child: SvgPicture.asset(
+                      "assets/images/closed_eye.svg",
+                      colorFilter: ColorFilter.mode(
+                          AppTheme.primaryLightTextColor!, BlendMode.srcIn),
+                    ))
                 : Container(
                     padding: EdgeInsets.all(10),
                     width: MediaQuery.of(context).size.width * 0.058,
-                    child: SvgPicture.asset("assets/images/open_eye.svg",
-                    colorFilter: ColorFilter.mode(AppTheme.primaryLightTextColor!, BlendMode.srcIn),)),
+                    child: SvgPicture.asset(
+                      "assets/images/open_eye.svg",
+                      colorFilter: ColorFilter.mode(
+                          AppTheme.primaryLightTextColor!, BlendMode.srcIn),
+                    )),
             // size: 17,
             // ),
             onTap: () {

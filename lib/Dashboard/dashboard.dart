@@ -10,6 +10,8 @@ import 'package:myfitnessapp/app_theme.dart';
 import 'package:myfitnessapp/cart_btn.dart';
 import 'package:myfitnessapp/cart_screen.dart';
 import 'package:myfitnessapp/Dashboard/hidden_drawer.dart';
+import 'package:myfitnessapp/sign_up.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -159,14 +161,23 @@ class _EntryPointState extends State<DashboardScreen>
           ],
         ),
         actions: [
-          CartBtn(
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (e) => CartScreen()),
-              );
-            },
-          ),
+          IconButton(
+              onPressed: () async {
+                // SharedPreferences sh = await SharedPreferences.getInstance();
+
+                // sh.clear();
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => SignUpScreen()));
+              },
+              icon: Icon(Icons.logout))
+          // CartBtn(
+          //   press: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (e) => CartScreen()),
+          //     );
+          //   },
+          // ),
         ],
       ),
       // drawer: HiddenDrawer(),

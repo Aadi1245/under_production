@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:myfitnessapp/Auth/firebase_auth_service.dart';
+import 'package:myfitnessapp/Dashboard/dashboard.dart';
+import 'package:myfitnessapp/Models/user_data.dart';
+import 'package:myfitnessapp/Utils/session.dart';
 import 'package:myfitnessapp/Widgets/toast.dart';
 import 'package:myfitnessapp/custom_text_form_field.dart';
 import 'package:myfitnessapp/sign_up.dart';
@@ -77,9 +80,22 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(
                 height: 30,
               ),
-              GestureDetector(
-                onTap: () {
+              InkWell(
+                onTap: () async {
                   // _signIn();
+                  Session data = Session();
+                  UserData? userD = await data.getUserData();
+                  if (_emailController.text == userD!.email &&
+                      _passwordController.text == userD.pass) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => DashboardScreen()));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Email & Password not matched'),
+                      ),
+                    );
+                  }
                 },
                 child: Container(
                   width: double.infinity,
@@ -89,61 +105,63 @@ class _SignInScreenState extends State<SignInScreen> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
-                    child: _isSigning
-                        ? CircularProgressIndicator(
-                            color: Colors.white,
-                          )
-                        : Text(
-                            "Login",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                    child:
+                        //  _isSigning
+                        //     ? CircularProgressIndicator(
+                        //         color: Colors.white,
+                        //       )
+                        //     :
+                        Text(
+                      "Login",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ),
               SizedBox(
                 height: 10,
               ),
-              GestureDetector(
-                onTap: () {
-                  // _signInWithGoogle();
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.google,
-                          color: Colors.white,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "Sign in with Google",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () {
+              //     // _signInWithGoogle();
+              //   },
+              //   child: Container(
+              //     width: double.infinity,
+              //     height: 45,
+              //     decoration: BoxDecoration(
+              //       color: Colors.red,
+              //       borderRadius: BorderRadius.circular(10),
+              //     ),
+              //     child: Center(
+              //       child: Row(
+              //         mainAxisAlignment: MainAxisAlignment.center,
+              //         children: [
+              //           Icon(
+              //             FontAwesomeIcons.google,
+              //             color: Colors.white,
+              //           ),
+              //           SizedBox(
+              //             width: 5,
+              //           ),
+              //           Text(
+              //             "Sign in with Google",
+              //             style: TextStyle(
+              //               color: Colors.white,
+              //               fontWeight: FontWeight.bold,
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
 
-              SizedBox(
-                height: 20,
-              ),
+              // SizedBox(
+              //   height: 20,
+              // ),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
