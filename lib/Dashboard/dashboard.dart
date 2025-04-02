@@ -132,18 +132,17 @@ class _EntryPointState extends State<DashboardScreen>
         leading: SizedBox(
           width: 80,
           height: 42,
-          // child:
-          // InkResponse(
-          //   child: Icon(Icons.menu),
-          //   onTap: () {
-          //     print(">>> object");
+          child: InkResponse(
+            child: Icon(Icons.menu),
+            onTap: () {
+              print(">>> object");
 
-          //     Navigator.of(context).push(MaterialPageRoute(
-          //       builder: (context) => HiddenDrawer(),
-          //     ));
-          //     // Scaffold.of(context).openDrawer();
-          //   },
-          // ),
+              // Navigator.of(context).push(MaterialPageRoute(
+              //   builder: (context) => HiddenDrawer(),
+              // ));
+              // Scaffold.of(context).openDrawer();
+            },
+          ),
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,

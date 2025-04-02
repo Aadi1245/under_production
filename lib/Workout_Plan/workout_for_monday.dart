@@ -23,18 +23,28 @@ class _WorkoutForMondayState extends State<WorkoutForMonday> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       textOnImageWidget(
-                          height: 350,
+                          height: 180,
                           width: 450,
                           text: "Push Pull Workout",
                           image: AppAssets.appLogo),
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       textOnImageWidget(
-                          height: 350,
+                          height: 180,
                           width: 450,
                           text: "Normal Workout",
                           image: AppAssets.appLogo),
+                      textOnImageWidget(
+                          height: 180,
+                          width: 450,
+                          text: "Cardio",
+                          image: AppAssets.appLogo),
+                      // textOnImageWidget(
+                      //     height: 180,
+                      //     width: 450,
+                      //     text: "",
+                      //     image: AppAssets.appLogo),
                     ],
                   ),
                 ))
