@@ -20,9 +20,9 @@ class ImageView extends StatelessWidget {
   String imageUrl;
   @override
   Widget build(BuildContext context) {
-    if (width != 0 || height != 0) {
-      imageUrl = imageUrl + "&width=${width.toInt()}&height=${height.toInt()}";
-    }
+    // if (width != 0 || height != 0) {
+    //   imageUrl = imageUrl + "&width=${width.toInt()}&height=${height.toInt()}";
+    // }
     // BoxFit imageFit = BoxFit.cover;
     // if (fit == null &&
     //     globals.Settings.containsKey(SettingsEnum.App_Image_Fit_Type.name) &&
@@ -67,24 +67,24 @@ class ImageView extends StatelessWidget {
                     width: double.infinity,
                     fit: fit,
                   )
-                : imageUrl.contains(".svg")
-                    ? SvgPicture.network(
-                        imageUrl,
-                        fit: fit ?? BoxFit.cover,
-                        width: double.infinity,
-                        placeholderBuilder: (context) => isProfileImage
-                            ? Image.asset(AppAssets.placeholder, fit: fit)
-                            : globals.placeholderImagePath != null
-                                ? Image.file(
-                                    File(globals.placeholderImagePath!),
-                                    fit: BoxFit.cover,
-                                  )
-                                : Image.asset(
-                                    AppAssets.placeholder,
-                                    fit: BoxFit.cover,
-                                  ),
-                      )
-                    : Image.asset(imageUrl, fit: BoxFit.cover)
+                // : imageUrl.contains(".svg")
+                //     ? SvgPicture.network(
+                //         imageUrl,
+                //         fit: fit ?? BoxFit.cover,
+                //         width: double.infinity,
+                //         placeholderBuilder: (context) => isProfileImage
+                //             ? Image.asset(AppAssets.placeholder, fit: fit)
+                //             : globals.placeholderImagePath != null
+                //                 ? Image.file(
+                //                     File(globals.placeholderImagePath!),
+                //                     fit: BoxFit.cover,
+                //                   )
+                //                 : Image.asset(
+                //                     AppAssets.placeholder,
+                //                     fit: BoxFit.cover,
+                //                   ),
+                //       )
+                : Image.asset(imageUrl, fit: BoxFit.cover)
             // CachedNetworkImage(
             //     fit: fit,
             //     width: double.infinity,

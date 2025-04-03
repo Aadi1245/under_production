@@ -38,4 +38,26 @@ class AppAssets {
   static const String vid16 = "assets/videos/vid16.mp4";
   static const String vid17 = "assets/videos/vid17.mp4";
   static const String vid18 = "assets/videos/vid18.mp4";
+
+  //-----------------Chest----------------
+  static const String dumbbellBenchPress =
+      "assets/images/dumbbellBenchPress.jpg";
+  static const String inclineBenchPress = "assets/images/inclineBenchPress.jpg";
+  static const String dumbbellPullover = "assets/images/dumbbellPullover.jpg";
+  static const String dumbbellFly = "assets/images/dumbbellFly.jpg";
+  static const String standingCable = "assets/images/standingCableFly.jpg";
+  static const String machineFly = "assets/images/machineFly.jpg";
+
+  //------------------tricep----------------
+
+  static const String straightBar =
+      "assets/images/straightBarTricepExtension.jpg";
+  static const String seatedOverheadDumbbell =
+      "assets/images/seatedOverheadDumbbellTricepExtension.jpg";
+  static const String barSkullcrusher = "assets/images/ezBarSkullcrusher.jpg";
+  static const String ropeTricepExtension =
+      "assets/images/ropeTricepExtension.jpg";
+  static const String underhandTricepExtension =
+      "assets/images/underhandTricepExtension.jpg";
+  static const String benchDip = "assets/images/benchDip.jpg";
 }

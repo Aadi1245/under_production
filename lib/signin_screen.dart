@@ -85,10 +85,12 @@ class _SignInScreenState extends State<SignInScreen> {
                   // _signIn();
                   Session data = Session();
                   UserData? userD = await data.getUserData();
-                  if (_emailController.text == userD!.email &&
-                      _passwordController.text == userD.pass) {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => DashboardScreen()));
+                  if (userD != null) {
+                    if (_emailController.text == userD!.email &&
+                        _passwordController.text == userD.pass) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => DashboardScreen()));
+                    }
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
