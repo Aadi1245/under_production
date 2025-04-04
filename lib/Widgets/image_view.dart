@@ -57,7 +57,7 @@ class ImageView extends StatelessWidget {
     }
     // print("Checkimage url is issue here ...${imageUrl}");
     return ClipRRect(
-      borderRadius: BorderRadius.circular(DashboardFontSize.customBorderRadius),
+      // borderRadius: BorderRadius.circular(DashboardFontSize.customBorderRadius),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
         child: Container(

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:myfitnessapp/Models/user_data.dart';
+import 'package:myfitnessapp/Utils/session.dart';
+import 'package:myfitnessapp/Workout_Plan/ExerciseView.dart';
 import 'package:myfitnessapp/app_assets.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../globels.dart' as globals;
 import '../Widgets/bottom_view_data.dart';
 
@@ -29,8 +34,22 @@ class _WorkoutForMondayState extends State<WorkoutForMonday> {
     "Standing Cable",
     "Machine Fly"
   ];
+  String gender = "male";
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  getInfo() async {
+    Session userInfo = Session();
+    UserData? user = await userInfo.getUserData();
+    globals.gender = user!.gender;
+  }
+
   @override
   Widget build(BuildContext context) {
+    getInfo();
     return Scaffold(
         backgroundColor: Colors.blue,
         body: globals.gender == "male"
@@ -45,8 +64,8 @@ class _WorkoutForMondayState extends State<WorkoutForMonday> {
                         onTap: () {
                           print("clicked --------->>>");
 
-                          bottomSheetView(
-                              context, "singleMuscle", day, "Chest");
+                          bottomSheetView(context, "Single Muscle", day,
+                              "Chest", "4 set 15 reps");
                         },
                         child: textOnImageWidget(
                             height: 180,
@@ -57,15 +76,24 @@ class _WorkoutForMondayState extends State<WorkoutForMonday> {
                       SizedBox(
                         height: 10,
                       ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Exerciseview(
+                                    imgList: img,
+                                    exerciseList: exerciseName,
+                                  )));
+                        },
+                        child: textOnImageWidget(
+                            height: 180,
+                            width: 450,
+                            text: "Push & Pull Workout",
+                            image: AppAssets.appLogo),
+                      ),
                       textOnImageWidget(
                           height: 180,
                           width: 450,
-                          text: "Double Muscle",
-                          image: AppAssets.appLogo),
-                      textOnImageWidget(
-                          height: 180,
-                          width: 450,
-                          text: "Push & Pull Workout",
+                          text: "Home Workout",
                           image: AppAssets.appLogo),
                       // textOnImageWidget(
                       //     height: 180,
@@ -108,8 +136,8 @@ class _WorkoutForMondayState extends State<WorkoutForMonday> {
         ));
   }
 
-  void bottomSheetView(
-      BuildContext context, String workoutType, String day, String muscle) {
+  void bottomSheetView(BuildContext context, String workoutType, String day,
+      String muscle, String set) {
     print("Reached --------->>>");
     showModalBottomSheet(
       context: context,
@@ -118,6 +146,9 @@ class _WorkoutForMondayState extends State<WorkoutForMonday> {
           day: day,
           muscle: muscle,
           workoutType: workoutType,
+          imgList: img,
+          exerciseList: exerciseName,
+          set: set,
         );
       },
     );

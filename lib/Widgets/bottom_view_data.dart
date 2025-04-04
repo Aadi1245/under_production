@@ -11,13 +11,15 @@ class BottomViewData extends StatefulWidget {
   String? muscle;
   List<String>? imgList;
   List<String>? exerciseList;
+  String? set;
   BottomViewData(
       {super.key,
       this.workoutType,
       this.day,
       this.muscle,
       this.imgList,
-      this.exerciseList});
+      this.exerciseList,
+      this.set});
 
   @override
   State<BottomViewData> createState() => _BottomViewDataState();
@@ -38,7 +40,7 @@ class _BottomViewDataState extends State<BottomViewData> {
               child: Text(
                 widget.workoutType != null ? widget.workoutType! : "Workout",
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -113,7 +115,7 @@ class _BottomViewDataState extends State<BottomViewData> {
                                 ////todo changes here : products counts add here
                                 Text(
                                   //   "${menuItems!.length.toString()} items",
-                                  " No of items to show",
+                                  widget.set!,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall!

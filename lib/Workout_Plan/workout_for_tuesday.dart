@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfitnessapp/Workout_Plan/ExerciseView.dart';
 import '../../../globels.dart' as globals;
 import '../Widgets/bottom_view_data.dart';
 import '../app_assets.dart';
@@ -45,8 +46,8 @@ class _WorkoutForTuesdayState extends State<WorkoutForTuesday> {
                         onTap: () {
                           print("clicked --------->>>");
 
-                          bottomSheetView(
-                              context, "singleMuscle", day, "Chest");
+                          bottomSheetView(context, "Single Muscle", day,
+                              "Chest", "4 set 15 reps");
                         },
                         child: textOnImageWidget(
                             height: 180,
@@ -57,11 +58,20 @@ class _WorkoutForTuesdayState extends State<WorkoutForTuesday> {
                       SizedBox(
                         height: 10,
                       ),
-                      textOnImageWidget(
-                          height: 180,
-                          width: 450,
-                          text: "Double Muscle",
-                          image: AppAssets.appLogo),
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Exerciseview(
+                                    imgList: img,
+                                    exerciseList: exerciseName,
+                                  )));
+                        },
+                        child: textOnImageWidget(
+                            height: 180,
+                            width: 450,
+                            text: "Home Workout",
+                            image: AppAssets.appLogo),
+                      ),
                       textOnImageWidget(
                           height: 180,
                           width: 450,
@@ -108,8 +118,8 @@ class _WorkoutForTuesdayState extends State<WorkoutForTuesday> {
         ));
   }
 
-  void bottomSheetView(
-      BuildContext context, String workoutType, String day, String muscle) {
+  void bottomSheetView(BuildContext context, String workoutType, String day,
+      String muscle, String set) {
     print("Reached --------->>>");
     showModalBottomSheet(
       context: context,
@@ -119,6 +129,8 @@ class _WorkoutForTuesdayState extends State<WorkoutForTuesday> {
           muscle: muscle,
           workoutType: workoutType,
           imgList: img,
+          exerciseList: exerciseName,
+          set: set,
         );
       },
     );

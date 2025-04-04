@@ -86,7 +86,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   Session data = Session();
                   UserData? userD = await data.getUserData();
                   if (userD != null) {
-                    if (_emailController.text == userD!.email &&
+                    if (_emailController.text == userD.email &&
                         _passwordController.text == userD.pass) {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => DashboardScreen()));
