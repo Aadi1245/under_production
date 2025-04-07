@@ -60,4 +60,50 @@ class AppAssets {
   static const String underhandTricepExtension =
       "assets/images/underhandTricepExtension.jpg";
   static const String benchDip = "assets/images/benchDip.jpg";
+
+  //------------------Back----------------
+
+  static const String bentOverRow = "assets/images/bentOverRow.jpg";
+  static const String seatedCableRow = "assets/images/seatedCableRow.jpg";
+  static const String tBarRow = "assets/images/tBarRow.jpg";
+  static const String machineRow = "assets/images/machineRow.jpg";
+  static const String reverseGripBentoverRow =
+      "assets/images/reverseGripBentoverrow.jpg";
+  static const String oneArmSeatedCableRow =
+      "assets/images/oneArmSeatedCableRow.jpg";
+
+  //------------------Byshape----------------
+
+  static const String inclineDumbbellCurlThumb =
+      "assets/images/inclineDumbbellCurlThumb.jpg";
+  static const String barbellCurl = "assets/images/barbellCurl.jpg";
+  static const String cableCurl = "assets/images/cableCurl.jpg";
+  static const String crossBodyHammerCurlPinwheelCurls =
+      "assets/images/crossBodyHammerCurlPinwheelCurls.jpg";
+  static const String seatedConcentrationCurl =
+      "assets/images/seatedConcentrationCurl.jpg";
+  static const String ezBarPreacherCurl = "assets/images/ezBarPreacherCurl.jpg";
+
+  //------------------Shoulder----------------
+  static const String dumbbellLateralRaise =
+      "assets/images/dumbbellLateralRaise.jpg";
+  static const String militaryOverheadPress =
+      "assets/images/militaryOverheadPress.jpg";
+  static const String seatedArnoldPressThumb =
+      "assets/images/seatedArnoldPressThumb.jpg";
+  static const String bentOverRearDeltRaise =
+      "assets/images/bentOverRearDeltRaise.jpg";
+  static const String cableFacePull = "assets/images/cableFacePull.jpg";
+  static const String cableLateralRaise = "assets/images/cableLateralRaise.jpg";
+
+  //------------------Abs & Legs----------------
+  static const String weightedCrunch = "assets/images/weightedCrunch.jpg";
+  static const String plank = "assets/images/plank.jpg";
+  static const String abCrunch = "assets/images/abCrunch.jpg";
+  static const String abBicycle = "assets/images/abBicycle.jpg";
+  static const String hamstringHelperWorkout =
+      "assets/images/hamstringHelperWorkout.jpg";
+  static const String legExtension = "assets/images/legExtension.jpg";
+  static const String weightedSquats = "assets/images/weightedSquats.jpg";
+  static const String legPress = "assets/images/legPress.jpg";
 }

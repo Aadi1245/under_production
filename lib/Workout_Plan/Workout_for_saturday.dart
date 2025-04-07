@@ -14,21 +14,38 @@ class WorkoutForSaturday extends StatefulWidget {
 class _WorkoutForSaturdayState extends State<WorkoutForSaturday> {
   String day = "Sturday";
   List<String> img = [
-    AppAssets.straightBar,
-    AppAssets.seatedOverheadDumbbell,
-    AppAssets.barSkullcrusher,
-    AppAssets.ropeTricepExtension,
-    AppAssets.underhandTricepExtension,
-    AppAssets.benchDip
+    AppAssets.weightedCrunch,
+    AppAssets.plank,
+    AppAssets.abCrunch,
+    AppAssets.abBicycle,
+    AppAssets.hamstringHelperWorkout,
+    AppAssets.legExtension,
+    AppAssets.weightedSquats,
+    AppAssets.legPress,
+    AppAssets.legPress
   ];
 
   List<String> exerciseName = [
-    "Straight Bar Tricep Extension",
-    "Seated Overhead Dumbbell Tricep Extension",
-    "Bar Skullcrusher",
-    "Rope Tricep Extension",
-    "Underhand Tricep Extension",
-    "Bench Dip"
+    "Weighted Crunch",
+    "Plank",
+    "ab-Crunch",
+    "ab-Bicycle",
+    "Hamstring Helper Workout",
+    "Leg Extension",
+    "Weighted Squats",
+    "Leg Press"
+  ];
+
+  List<String> exerciseName2 = [
+    "Forward Lunge",
+    "Bodyweight Squat",
+    "Mountain Climber",
+    "Running",
+    "Burpees",
+    "High Kick",
+    "Hand Chest Press and Row",
+    "Sit-Ups",
+    "Bicycle"
   ];
 
   @override
@@ -47,8 +64,8 @@ class _WorkoutForSaturdayState extends State<WorkoutForSaturday> {
                         onTap: () {
                           print("clicked --------->>>");
 
-                          bottomSheetView(context, "Single Muscle", day,
-                              "Chest", "4 set 15 reps");
+                          bottomSheetView(context, "Abs & Legs Workout", day,
+                              "Legs", "4 set 20 reps", 8);
                         },
                         child: textOnImageWidget(
                             height: 180,
@@ -64,7 +81,10 @@ class _WorkoutForSaturdayState extends State<WorkoutForSaturday> {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => Exerciseview(
                                     imgList: img,
-                                    exerciseList: exerciseName,
+                                    exerciseList: exerciseName2,
+                                    workoutType: "Cardio",
+                                    items: 9,
+                                    set: "Till Failure",
                                   )));
                         },
                         child: textOnImageWidget(
@@ -120,7 +140,7 @@ class _WorkoutForSaturdayState extends State<WorkoutForSaturday> {
   }
 
   void bottomSheetView(BuildContext context, String workoutType, String day,
-      String muscle, String set) {
+      String muscle, String set, int items) {
     print("Reached --------->>>");
     showModalBottomSheet(
       context: context,
@@ -132,6 +152,7 @@ class _WorkoutForSaturdayState extends State<WorkoutForSaturday> {
           imgList: img,
           exerciseList: exerciseName,
           set: set,
+          items: items,
         );
       },
     );

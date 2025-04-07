@@ -12,6 +12,7 @@ class BottomViewData extends StatefulWidget {
   List<String>? imgList;
   List<String>? exerciseList;
   String? set;
+  int items;
   BottomViewData(
       {super.key,
       this.workoutType,
@@ -19,7 +20,8 @@ class BottomViewData extends StatefulWidget {
       this.muscle,
       this.imgList,
       this.exerciseList,
-      this.set});
+      this.set,
+      this.items = 6});
 
   @override
   State<BottomViewData> createState() => _BottomViewDataState();
@@ -50,7 +52,7 @@ class _BottomViewDataState extends State<BottomViewData> {
             flex: 9,
             child: SingleChildScrollView(
               child: Column(children: [
-                ...List.generate(6, (index) {
+                ...List.generate(widget.items, (index) {
                   return InkWell(
                     onTap: () {},
                     child: Container(
