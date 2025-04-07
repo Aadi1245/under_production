@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:myfitnessapp/Animation/fade_animation.dart';
 import 'package:myfitnessapp/Dashboard/dashboard.dart';
+import 'package:myfitnessapp/Models/user_data.dart';
+import 'package:myfitnessapp/globels.dart';
 import 'package:myfitnessapp/sign_up.dart';
 import 'package:myfitnessapp/welcom_screen.dart';
+
+import 'Utils/session.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -23,11 +27,17 @@ class _SplashScreenState extends State<SplashScreen>
 
   bool hideIcon = false;
 
+  UserData? userData;
+  isLogin() async {
+    Session user = Session();
+    userData = await user.getUserData();
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
+    isLogin();
     _scaleController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
 
@@ -67,15 +77,17 @@ class _SplashScreenState extends State<SplashScreen>
     _scale2Controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
 
-    _scale2Animation = Tween<double>(begin: 1.0, end: 32.0)
-        .animate(_scale2Controller)
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          Navigator.of(context).push(
-              MyCustomRouteTransition(route: WelcomeScreen() //DashboardScreen()
+    _scale2Animation =
+        Tween<double>(begin: 1.0, end: 32.0).animate(_scale2Controller)
+          ..addStatusListener((status) {
+            if (status == AnimationStatus.completed) {
+              Navigator.of(context).push(MyCustomRouteTransition(
+                  route: userData != null
+                      ? DashboardScreen()
+                      : WelcomeScreen() //DashboardScreen()
                   ));
-        }
-      });
+            }
+          });
   }
 
   @override

@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:myfitnessapp/Dashboard/HomeScreen.dart';
 import 'package:myfitnessapp/Dashboard/products.dart';
 import 'package:myfitnessapp/Dashboard/shots.dart';
@@ -133,14 +134,17 @@ class _EntryPointState extends State<DashboardScreen>
           width: 80,
           height: 42,
           child: InkResponse(
-            child: Icon(Icons.menu),
+            child: Icon(
+              PhosphorIcons.user_circle_fill,
+              size: 30,
+            ),
             onTap: () {
               print(">>> object");
 
-              // Navigator.of(context).push(MaterialPageRoute(
-              //   builder: (context) => HiddenDrawer(),
-              // ));
-              // Scaffold.of(context).openDrawer();
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => HiddenDrawer(),
+              ));
+              Scaffold.of(context).openDrawer();
             },
           ),
         ),
@@ -149,7 +153,15 @@ class _EntryPointState extends State<DashboardScreen>
           children: [
             // Text(ShopifyAppConfig.APP_NAME),
 
-            Text("Myfitness")
+            Text(
+              "Myfitness",
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.black,
+                    // fontFamily: FontFamily.fontNormal
+                  ),
+            )
 
             // Image(
             //   image: AssetImage(AppAssets.appLogo),
