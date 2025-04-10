@@ -282,7 +282,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
               height: 20,
             ),
             InkResponse(
-              onTap: () {},
+              onTap: () {
+                showBMICalculator(context);
+              },
               child: Container(
                 padding: EdgeInsets.all(10),
                 width: MediaQuery.of(context).size.width,
@@ -320,6 +322,74 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ],
         ),
       ),
+    );
+  }
+
+  TextEditingController height = TextEditingController();
+  TextEditingController weight = TextEditingController();
+
+  showBMICalculator(BuildContext context) async {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('BMI Calculation'),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                child: Icon(
+                  Icons.cancel_outlined,
+                ),
+              ),
+            ],
+          ),
+          content: SingleChildScrollView(
+              child: Column(
+            children: [
+              TextField(
+                controller: height,
+                decoration: InputDecoration(
+                  labelText: "Height in foot",
+                  border: OutlineInputBorder(),
+                ),
+                keyboardType: TextInputType.number,
+              ),
+              SizedBox(height: 10),
+              TextField(
+                controller: weight,
+                decoration: InputDecoration(
+                  labelText: "Weight in kg",
+                  border: OutlineInputBorder(),
+                ),
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
+              ),
+              SizedBox(height: 20),
+
+              // Button
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    bmi = (double.parse(weight.text)) /
+                        ((double.parse(height.text) * 0.3048) *
+                            (double.parse(height.text) * 0.3048));
+                    // setState(() {});
+                    height.text = "";
+                    weight.text = "";
+                    Navigator.of(context).pop();
+                    // Handle button tap
+                  },
+                  child: Text("Add Pricing Tier"),
+                ),
+              ),
+            ],
+          )),
+        );
+      },
     );
   }
 }
