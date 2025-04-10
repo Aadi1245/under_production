@@ -170,14 +170,17 @@ class _WorkoutForMondayState extends State<WorkoutForMonday> {
     showModalBottomSheet(
       context: context,
       builder: (context) {
-        return BottomViewData(
-          day: day,
-          muscle: muscle,
-          workoutType: workoutType,
-          imgList: img,
-          exerciseList: exerciseName,
-          set: set,
-          items: items,
+        return Container(
+          height: 800, //MediaQuery.of(context).size.height * 1.5,
+          child: BottomViewData(
+            day: day,
+            muscle: muscle,
+            workoutType: workoutType,
+            imgList: img,
+            exerciseList: exerciseName,
+            set: set,
+            items: items,
+          ),
         );
       },
     );

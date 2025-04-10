@@ -31,7 +31,7 @@ class _BottomViewDataState extends State<BottomViewData> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      height: 800, //MediaQuery.of(context).size.height,
       padding: EdgeInsets.only(top: 10, left: 10, right: 10),
       child: Column(
         children: [

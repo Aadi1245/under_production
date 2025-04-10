@@ -3,6 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:myfitnessapp/Dashboard/HomeScreen.dart';
+import 'package:myfitnessapp/Dashboard/custom_drawer.dart';
 import 'package:myfitnessapp/Dashboard/products.dart';
 import 'package:myfitnessapp/Dashboard/shots.dart';
 import 'package:myfitnessapp/Workout_Plan/workout_for_tuesday.dart';
@@ -142,9 +143,8 @@ class _EntryPointState extends State<DashboardScreen>
               print(">>> object");
 
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => HiddenDrawer(),
+                builder: (context) => CustomDrawer(),
               ));
-              Scaffold.of(context).openDrawer();
             },
           ),
         ),
@@ -191,7 +191,7 @@ class _EntryPointState extends State<DashboardScreen>
           // ),
         ],
       ),
-      // drawer: HiddenDrawer(),
+      drawer: CustomDrawer(),
       body: body(context),
 
       ///saloni Todo "to show buttom bar tabs here"
