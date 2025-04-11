@@ -38,13 +38,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       //app bar theme for tablet
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Text('My Profile'),
       ),
-      body: Container(
-        color: Colors.white,
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
@@ -332,62 +332,91 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('BMI Calculation'),
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).pop(); // Close the dialog
-                },
-                child: Icon(
-                  Icons.cancel_outlined,
+        return Dialog(
+          insetPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: MediaQuery.of(context).size.height * 0.8,
+                  ),
+                  child: IntrinsicHeight(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('BMI Calculation',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pop(); // Close the dialog
+                                },
+                                child: Icon(Icons.cancel_outlined),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Column(
+                              children: [
+                                TextField(
+                                  controller: height,
+                                  decoration: InputDecoration(
+                                    labelText: "Height in foot",
+                                    border: OutlineInputBorder(),
+                                  ),
+                                  keyboardType: TextInputType.number,
+                                ),
+                                SizedBox(height: 10),
+                                TextField(
+                                  controller: weight,
+                                  decoration: InputDecoration(
+                                    labelText: "Weight in kg",
+                                    border: OutlineInputBorder(),
+                                  ),
+                                  keyboardType: TextInputType.numberWithOptions(
+                                      decimal: true),
+                                ),
+                                Spacer(),
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      bmi = (double.parse(weight.text)) /
+                                          ((double.parse(height.text) *
+                                                  0.3048) *
+                                              (double.parse(height.text) *
+                                                  0.3048));
+                                      setState(() {}); // update BMI display
+                                      height.text = "";
+                                      weight.text = "";
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text("Get BMI"),
+                                  ),
+                                ),
+                                SizedBox(height: 16),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              );
+            },
           ),
-          content: SingleChildScrollView(
-              child: Column(
-            children: [
-              TextField(
-                controller: height,
-                decoration: InputDecoration(
-                  labelText: "Height in foot",
-                  border: OutlineInputBorder(),
-                ),
-                keyboardType: TextInputType.number,
-              ),
-              SizedBox(height: 10),
-              TextField(
-                controller: weight,
-                decoration: InputDecoration(
-                  labelText: "Weight in kg",
-                  border: OutlineInputBorder(),
-                ),
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
-              ),
-              SizedBox(height: 20),
-
-              // Button
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    bmi = (double.parse(weight.text)) /
-                        ((double.parse(height.text) * 0.3048) *
-                            (double.parse(height.text) * 0.3048));
-                    // setState(() {});
-                    height.text = "";
-                    weight.text = "";
-                    Navigator.of(context).pop();
-                    // Handle button tap
-                  },
-                  child: Text("Add Pricing Tier"),
-                ),
-              ),
-            ],
-          )),
         );
       },
     );

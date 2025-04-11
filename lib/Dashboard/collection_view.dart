@@ -27,7 +27,7 @@ class CollectionView extends StatelessWidget {
             ),
           ),
           Container(
-              height: MediaQuery.of(context).size.height * 0.416,
+              height: MediaQuery.of(context).size.height * 0.43,
               // padding:
               //     EdgeInsets.only(top: 8.0, bottom: 8.0, left: 10, right: 10),
               child: GridView.builder(
@@ -36,7 +36,7 @@ class CollectionView extends StatelessWidget {
                   crossAxisCount: 2, // Two rows
                   mainAxisSpacing: 5, // Space between the main axis items
                   crossAxisSpacing: 5, // Space between the cross axis items
-                  childAspectRatio: 1.36, // Aspect ratio for the items
+                  childAspectRatio: 1.37, // Aspect ratio for the items
                 ),
                 itemCount:
                     globals.allProduct.length, // Number of items in the list

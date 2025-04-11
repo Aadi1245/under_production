@@ -35,14 +35,15 @@ class Homescreen {
               children: [
                 SliderImage(data!),
                 CollectionView("Recommended Products"),
-                Container(
+                InkWell(
+                    onTap: () {},
                     child: ClipRRect(
-                  child: ImageView(
-                    AppAssets.img2,
-                    // height: MediaQuery.of(context).size.height * 0.35,
-                    // width: MediaQuery.of(context).size.width,
-                  ),
-                )),
+                      child: ImageView(
+                        AppAssets.img2,
+                        // height: MediaQuery.of(context).size.height * 0.35,
+                        // width: MediaQuery.of(context).size.width,
+                      ),
+                    )),
                 SizedBox(
                   height: 70,
                 )
