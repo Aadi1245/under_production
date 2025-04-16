@@ -72,7 +72,7 @@ class _ExerciseviewState extends State<Exerciseview> {
                   children: [
                     // Leading Image Container
                     Container(
-                      width: 170, // Adjust width
+                      width: 230, // Adjust width
                       height: 200, // Adjust height
                       decoration: BoxDecoration(
                         border:

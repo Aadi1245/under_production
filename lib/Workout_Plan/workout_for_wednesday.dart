@@ -39,10 +39,14 @@ class _WorkoutForWednesdayState extends State<WorkoutForWednesday> {
   ];
 
   List<List<String>> subImg = [
-    [AppAssets.weightedCrunch, AppAssets.legPress, AppAssets.dumbbellFly],
-    [AppAssets.dumbbellLateralRaise, AppAssets.dumbbellLateralRaise],
-    [AppAssets.straightBar],
-    [AppAssets.plank, AppAssets.plank]
+    [
+      AppAssets.weightedSquats,
+      AppAssets.legPress,
+      AppAssets.bulgarianSplitSquats
+    ],
+    [AppAssets.romanDeadlift, AppAssets.lyingLeg],
+    [AppAssets.seatedCalf],
+    [AppAssets.declineSitups, AppAssets.sidePlank]
   ];
 
   List<List<String>> subExercise = [

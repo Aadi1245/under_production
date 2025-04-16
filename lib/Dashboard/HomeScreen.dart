@@ -157,22 +157,19 @@ class Homescreen {
                                         // Call your method using selectedGoal and selectedMealType
                                         print("Goal: $selectedGoal");
                                         print("Meal Type: $selectedMealType");
-                                        selectedGoal = selectedGoal ==
-                                                'Weight Loss'
-                                            ? "weightLoss"
-                                            : selectedGoal == 'Weight Gain'
-                                                ? "weightGain"
-                                                : selectedGoal == 'Muscle Gain'
-                                                    ? "muscleGain"
-                                                    : "weightLoss";
 
-                                        Navigator.of(context)
+                                        bool goBack = (Navigator.of(context)
                                             .push(MaterialPageRoute(
                                                 builder: (context) => DietPlan(
                                                       goal: selectedGoal,
                                                       mealType:
                                                           selectedMealType,
-                                                    )));
+                                                    )))) as bool;
+                                        if (goBack) {
+                                          print("Under the if condition");
+
+                                          Navigator.of(context).pop();
+                                        }
                                       },
                                       child: Text("Get Diet Plan"),
                                     ),

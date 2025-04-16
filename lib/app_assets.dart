@@ -47,6 +47,7 @@ class AppAssets {
   static const String dumbbellFly = "assets/images/dumbbellFly.jpg";
   static const String standingCable = "assets/images/standingCableFly.jpg";
   static const String machineFly = "assets/images/machineFly.jpg";
+  static const String barbellBenchPress = "assets/images/barbellBenchPress.jpg";
 
   //------------------tricep----------------
 
@@ -60,6 +61,7 @@ class AppAssets {
   static const String underhandTricepExtension =
       "assets/images/underhandTricepExtension.jpg";
   static const String benchDip = "assets/images/benchDip.jpg";
+  static const String tricepDip = "assets/images/tricepDip.jpg";
 
   //------------------Back----------------
 
@@ -71,6 +73,8 @@ class AppAssets {
       "assets/images/reverseGripBentoverrow.jpg";
   static const String oneArmSeatedCableRow =
       "assets/images/oneArmSeatedCableRow.jpg";
+  static const String pullUps = "assets/images/pullUps.jpg";
+  static const String romanDeadlift = "assets/images/romanDeadlift.jpg";
 
   //------------------Byshape----------------
 
@@ -95,30 +99,59 @@ class AppAssets {
       "assets/images/bentOverRearDeltRaise.jpg";
   static const String cableFacePull = "assets/images/cableFacePull.jpg";
   static const String cableLateralRaise = "assets/images/cableLateralRaise.jpg";
+  static const String dumbbellShrugs = "assets/images/dumbbellShrugs.jpg";
 
   //------------------Abs & Legs----------------
+  static const String cableCrunch = "assets/images/cableCrunch.jpg";
+  static const String hangingLegRaise = "assets/images/hangingLegRaise.jpg";
   static const String weightedCrunch = "assets/images/weightedCrunch.jpg";
   static const String plank = "assets/images/plank.jpg";
   static const String abCrunch = "assets/images/abCrunch.jpg";
   static const String abBicycle = "assets/images/abBicycle.jpg";
+  static const String rassionTwist = "assets/images/rassionTwist.jpg";
+  static const String declineSitups = "assets/images/declineSitups.jpg";
+  static const String sidePlank = "assets/images/sidePlank.jpg";
   static const String hamstringHelperWorkout =
       "assets/images/hamstringHelperWorkout.jpg";
   static const String legExtension = "assets/images/legExtension.jpg";
   static const String weightedSquats = "assets/images/weightedSquats.jpg";
   static const String legPress = "assets/images/legPress.jpg";
+  static const String bulgarianSplitSquats =
+      "assets/images/bulgarianSplitSquats.jpg";
+  static const String lyingLeg = "assets/images/lyingLeg.jpg";
+  static const String seatedCalf = "assets/images/seatedCalf.jpg";
+  static const String nordicCurls = "assets/images/nordicCurls.jpg";
+  static const String stiffLegDeadlift = "assets/images/stiffLegDeadlift.jpg";
+  static const String frontSquats = "assets/images/frontSquats.jpg";
+  static const String stepUps = "assets/images/stepUps.jpg";
+  static const String standingCalfRaises =
+      "assets/images/standingCalfRaises.jpg";
+  static const String donkeyCalfRaises = "assets/images/donkeyCalfRaises.jpg";
+  static const String cableWoodchoppers = "assets/images/cableWoodchoppers.jpg";
+  static const String forwardLunge = "assets/images/forwardLunge.jpg";
+  static const String bodyWeightSquat = "assets/images/bodyWeightSquat.jpg";
+  static const String mountainClimber = "assets/images/mountainClimber.jpg";
+  static const String running = "assets/images/running.jpg";
+  static const String burpees = "assets/images/burpees.jpg";
+  static const String highKick = "assets/images/highKick.jpg";
+  static const String handChestPress = "assets/images/handChestPress.jpg";
+  static const String sitUps = "assets/images/sitUps.jpg";
+  static const String bicycle = "assets/images/bicycle.jpg";
+
+  static const String womensWorkout = "assets/images/womensWorkout.jpg";
 
   //Diet Plans
 
   static const String weightGainVeg = """
 🥑 Vegetarian Diet Plan – Weight Gain
-(Approx. 2200–2500 kcal/day)
+     (Approx. 2200 – 2500 kcal/day)
 
-🔆 Morning (7:00–8:00 AM)
+🔆 Morning (7:00 – 8:00 AM)
 Warm water with soaked raisins or dates (good for digestion + natural sugar)
 
-5–6 soaked almonds + 2 walnuts
+5 – 6 soaked almonds + 2 walnuts
 
-🍽 Breakfast (8:30–9:30 AM)
+🍽 Breakfast (8:30 – 9:30 AM)
 Choose one:
 
 2 parathas with ghee + curd or paneer bhurji

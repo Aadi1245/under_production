@@ -48,6 +48,18 @@ class _WorkoutForSaturdayState extends State<WorkoutForSaturday> {
     "Bicycle"
   ];
 
+  List<String> img2=[
+    AppAssets.forwardLunge,
+    AppAssets.bodyWeightSquat,
+    AppAssets.mountainClimber,
+    AppAssets.running,
+    AppAssets.burpees,
+    AppAssets.highKick,
+    AppAssets.handChestPress,
+    AppAssets.sitUps,
+    AppAssets.bicycle
+    ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,19 +102,9 @@ class _WorkoutForSaturdayState extends State<WorkoutForSaturday> {
                         child: textOnImageWidget(
                             height: 180,
                             width: 450,
-                            text: "Push & Pull Workout",
+                            text: "Extream Workout",
                             image: AppAssets.appLogo),
-                      ),
-                      textOnImageWidget(
-                          height: 180,
-                          width: 450,
-                          text: "Home Workout",
-                          image: AppAssets.appLogo),
-                      // textOnImageWidget(
-                      //     height: 180,
-                      //     width: 450,
-                      //     text: "",
-                      //     image: AppAssets.appLogo),
+                      ), 
                     ],
                   ),
                 ))

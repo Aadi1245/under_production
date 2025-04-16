@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myfitnessapp/Models/user_data.dart';
 import 'package:myfitnessapp/Utils/session.dart';
 import 'package:myfitnessapp/Workout_Plan/ExerciseView.dart';
+import 'package:myfitnessapp/Workout_Plan/womens_workout.dart';
 import 'package:myfitnessapp/app_assets.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,13 +45,13 @@ class _WorkoutForMondayState extends State<WorkoutForMonday> {
 
   List<List<String>> subImg = [
     [
-      AppAssets.inclineBenchPress,
+      AppAssets.barbellBenchPress,
       AppAssets.dumbbellBenchPress,
       AppAssets.dumbbellFly
     ],
     [AppAssets.dumbbellLateralRaise],
-    [AppAssets.straightBar, AppAssets.barSkullcrusher],
-    [AppAssets.plank, AppAssets.abCrunch]
+    [AppAssets.tricepDip, AppAssets.ropeTricepExtension],
+    [AppAssets.hangingLegRaise, AppAssets.cableCrunch]
   ];
 
   List<List<String>> subExercise = [
@@ -116,6 +117,20 @@ class _WorkoutForMondayState extends State<WorkoutForMonday> {
                             height: 180,
                             width: 450,
                             text: "Extreme Workout",
+                            image: AppAssets.appLogo),
+                      ),
+
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Womensworkout(
+                                    exerciseName: exerciseName2,
+                                  )));
+                        },
+                        child: textOnImageWidget(
+                            height: 180,
+                            width: 450,
+                            text: "Womens Workout",
                             image: AppAssets.appLogo),
                       ),
                       // textOnImageWidget(

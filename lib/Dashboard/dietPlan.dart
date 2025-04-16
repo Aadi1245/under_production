@@ -14,9 +14,21 @@ class _DietPlanState extends State<DietPlan> {
   // String dietPlan = widget.goal=="weightGain"&&widget.mealType=="veg"?;
   @override
   Widget build(BuildContext context) {
+    widget.goal = widget.goal == 'Weight Loss'
+        ? "weightLoss"
+        : widget.goal == 'Weight Gain'
+            ? "weightGain"
+            : widget.goal == 'Muscle Gain'
+                ? "muscleGain"
+                : "weightLoss";
     return Scaffold(
       appBar: AppBar(
         title: Text("Diet Plan"),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop(true);
+            },
+            icon: Icon(Icons.arrow_back)),
       ),
       body: SingleChildScrollView(
         child: Container(

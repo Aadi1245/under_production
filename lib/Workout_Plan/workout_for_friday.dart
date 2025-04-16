@@ -38,27 +38,34 @@ class _WorkoutForFridayState extends State<WorkoutForFriday> {
     "Abs",
   ];
 
+  List<String> img2 = [
+    AppAssets.hamstringHelperWorkout,
+    AppAssets.weightedSquats,
+    AppAssets.seatedCalf,
+    AppAssets.abCrunch
+  ];
+
   List<List<String>> subImg = [
     [
-      AppAssets.inclineBenchPress,
-      AppAssets.dumbbellBenchPress,
-      AppAssets.dumbbellBenchPress,
+      AppAssets.romanDeadlift,
+      AppAssets.nordicCurls,
+      AppAssets.stiffLegDeadlift,
     ],
-    [AppAssets.dumbbellBenchPress, AppAssets.seatedCableRow],
+    [AppAssets.frontSquats, AppAssets.stepUps],
     [
-      AppAssets.straightBar,
-      AppAssets.dumbbellBenchPress,
+      AppAssets.standingCalfRaises,
+      AppAssets.donkeyCalfRaises,
     ],
     [
-      AppAssets.barSkullcrusher,
-      AppAssets.dumbbellBenchPress,
+      AppAssets.hangingLegRaise,
+      AppAssets.cableWoodchoppers,
     ],
   ];
 
   List<List<String>> subExercise = [
     ["Romanian Deadlifts", "Nordic Curls", "Stiff-Leg Deadlifts"],
     ["Front Squats", "Step Ups"],
-    ["Standing Curl Raises", "Donkey Calf Raises"],
+    ["Standing Calf Raises", "Donkey Calf Raises"],
     ["Hanging Leg Raises", "Cable Woodchoppers"]
   ];
 
@@ -94,7 +101,7 @@ class _WorkoutForFridayState extends State<WorkoutForFriday> {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => Exerciseview(
-                                    imgList: img,
+                                    imgList: img2,
                                     exerciseList: exerciseName2,
                                     items: 4,
                                     workoutType: "Lower Workout",
@@ -109,11 +116,11 @@ class _WorkoutForFridayState extends State<WorkoutForFriday> {
                             text: "Extreme Workout",
                             image: AppAssets.appLogo),
                       ),
-                      textOnImageWidget(
-                          height: 180,
-                          width: 450,
-                          text: "Home Workout",
-                          image: AppAssets.appLogo),
+                      // textOnImageWidget(
+                      //     height: 180,
+                      //     width: 450,
+                      //     text: "Home Workout",
+                      //     image: AppAssets.appLogo),
                       // textOnImageWidget(
                       //     height: 180,
                       //     width: 450,
