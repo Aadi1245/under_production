@@ -50,7 +50,7 @@ class Homescreen {
                     },
                     child: ClipRRect(
                       child: ImageView(
-                        width: MediaQuery.of(context).size.width * 1.2,
+                        // width: MediaQuery.of(context).size.width * 1.2,
                         fit: BoxFit.cover,
 
                         AppAssets.dietPlanImg,
