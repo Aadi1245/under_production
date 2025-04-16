@@ -134,6 +134,7 @@ import 'package:myfitnessapp/Widgets/custom_scaffold.dart';
 import 'package:myfitnessapp/signin_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../globels.dart' as globals;
 import 'Models/user_data.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -483,6 +484,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           if (user != null) {
                             Session setData = Session();
                             setData.saveUserData(user);
+
+                            globals.gender = gender.text;
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                 content: Text('Signup Successfully'),

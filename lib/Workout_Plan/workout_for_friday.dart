@@ -72,7 +72,6 @@ class _WorkoutForFridayState extends State<WorkoutForFriday> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.greenAccent,
         body: globals.gender == "male"
             ? Container(
                 height: MediaQuery.of(context).size.height,

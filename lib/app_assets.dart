@@ -14,6 +14,7 @@ class AppAssets {
   static const String Atom = "assets/images/Atom.jpg";
   static const String bag = "assets/images/bag.jpg";
   static const String img2 = "assets/images/images2.jpg";
+  static const String dietPlanImg = "assets/images/dietPlanImg.jpg";
 
   static const String slider0 = "assets/images/slider0.jpg";
   static const String slider1 = "assets/images/slider1.jpg";

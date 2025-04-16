@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myfitnessapp/Widgets/image_view.dart';
 import 'package:myfitnessapp/app_assets.dart';
-
+import '../../../globels.dart' as globals;
 import '../Widgets/bottom_view_data.dart';
 import '../app_theme.dart';
 import '../dashboard_font_size.dart';

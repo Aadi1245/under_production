@@ -84,7 +84,9 @@ class ImageView extends StatelessWidget {
                 //                     fit: BoxFit.cover,
                 //                   ),
                 //       )
-                : Image.asset(imageUrl, fit: BoxFit.cover)
+                : imageUrl.contains("https")
+                    ? Image.network(imageUrl, fit: BoxFit.cover)
+                    : Image.asset(imageUrl, fit: BoxFit.cover)
             // CachedNetworkImage(
             //     fit: fit,
             //     width: double.infinity,

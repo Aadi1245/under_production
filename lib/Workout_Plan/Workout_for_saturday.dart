@@ -48,7 +48,7 @@ class _WorkoutForSaturdayState extends State<WorkoutForSaturday> {
     "Bicycle"
   ];
 
-  List<String> img2=[
+  List<String> img2 = [
     AppAssets.forwardLunge,
     AppAssets.bodyWeightSquat,
     AppAssets.mountainClimber,
@@ -58,12 +58,11 @@ class _WorkoutForSaturdayState extends State<WorkoutForSaturday> {
     AppAssets.handChestPress,
     AppAssets.sitUps,
     AppAssets.bicycle
-    ];
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.greenAccent,
         body: globals.gender == "male"
             ? Container(
                 height: MediaQuery.of(context).size.height,
@@ -104,7 +103,7 @@ class _WorkoutForSaturdayState extends State<WorkoutForSaturday> {
                             width: 450,
                             text: "Extream Workout",
                             image: AppAssets.appLogo),
-                      ), 
+                      ),
                     ],
                   ),
                 ))

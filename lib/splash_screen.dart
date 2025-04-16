@@ -5,7 +5,7 @@ import 'package:myfitnessapp/Models/user_data.dart';
 import 'package:myfitnessapp/globels.dart';
 import 'package:myfitnessapp/sign_up.dart';
 import 'package:myfitnessapp/welcom_screen.dart';
-
+import '../../../globels.dart' as globals;
 import 'Utils/session.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -81,6 +81,7 @@ class _SplashScreenState extends State<SplashScreen>
         Tween<double>(begin: 1.0, end: 32.0).animate(_scale2Controller)
           ..addStatusListener((status) {
             if (status == AnimationStatus.completed) {
+              userData != null ? globals.gender = userData!.gender : "";
               Navigator.of(context).push(MyCustomRouteTransition(
                   route: userData != null
                       ? DashboardScreen()

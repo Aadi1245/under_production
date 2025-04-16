@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:myfitnessapp/Dashboard/collection_view.dart';
 import 'package:myfitnessapp/Dashboard/dietPlan.dart';
 import 'package:myfitnessapp/Dashboard/slider.dart';
@@ -36,13 +37,24 @@ class Homescreen {
               children: [
                 SliderImage(data!),
                 CollectionView("Recommended Products"),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    "Get Your Diet Plan",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
                 InkWell(
                     onTap: () {
                       showDialogueForDiedPlan(context);
                     },
                     child: ClipRRect(
                       child: ImageView(
-                        AppAssets.img2,
+                        width: MediaQuery.of(context).size.width * 1.2,
+                        fit: BoxFit.cover,
+
+                        AppAssets.dietPlanImg,
+
                         // height: MediaQuery.of(context).size.height * 0.35,
                         // width: MediaQuery.of(context).size.width,
                       ),
@@ -168,7 +180,7 @@ class Homescreen {
                                         if (goBack) {
                                           print("Under the if condition");
 
-                                          Navigator.of(context).pop();
+                                          context.pop();
                                         }
                                       },
                                       child: Text("Get Diet Plan"),

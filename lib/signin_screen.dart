@@ -10,6 +10,7 @@ import 'package:myfitnessapp/Utils/session.dart';
 import 'package:myfitnessapp/Widgets/toast.dart';
 import 'package:myfitnessapp/custom_text_form_field.dart';
 import 'package:myfitnessapp/sign_up.dart';
+import '../../../globels.dart' as globals;
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -86,6 +87,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   Session data = Session();
                   UserData? userD = await data.getUserData();
                   if (userD != null) {
+                    globals.gender = userD.gender;
                     if (_emailController.text == userD.email &&
                         _passwordController.text == userD.pass) {
                       Navigator.of(context).push(MaterialPageRoute(
